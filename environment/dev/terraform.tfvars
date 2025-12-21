@@ -1,13 +1,9 @@
 rg_config = {
   "dev-rg" = {
-    resource_group_name     = "dev-rg"
+    resource_group_name     = "dk-rg"
     resource_group_location = "centralindia"
   }
-  dev2-rg = {
-    resource_group_name     = "dev2-rg"
-    resource_group_location = "centralindia"
-
-  }
+  
 }
 
 vnet_config = {
@@ -21,7 +17,7 @@ vnet_config = {
 
 subnet_config = {
   "dev-subnet" = {
-    subnet_name          = "dev-subnet"
+    name          = "dev-subnet"
     resource_group_name  = "dev-rg"
     virtual_network_name = "dev-vnet"
     address_prefixes     = ["10.0.1.0/24"]
@@ -32,7 +28,8 @@ ip_config = {
   "pip1" = {
     public_ip_name          = "pip1"
     resource_group_name     = "dev-rg"
-    resource_group_location = "centralindia"
+    location = "centralindia"
+  
   }
 }
 
@@ -71,7 +68,7 @@ vm_config = {
     nic_name            = "nic1"
     vm_size             = "Standard_B1s"
     admin_username      = "azureuser"
-    admin_password      = "P@ssw0rd1234!"
+    admin_password      = "P#ssw0rd1234!"
     publisher           = "Canonical"
     offer               = "UbuntuServer"
     sku                 = "18.04-LTS"
