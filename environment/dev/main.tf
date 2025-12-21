@@ -4,7 +4,7 @@ module "rg" {
 }
 
 module "vnet" {
-  source                 = "../../modules/azurerm_virtual_network"
+  source = "../../modules/Azurerm_virtual_network"
   vnet_config = var.vnet_config
   depends_on             = [module.rg]
 }
@@ -22,19 +22,19 @@ module "pip" {
 }
 
 module "nic" {
-  source = "../../modules/azurerm_nic"
+  source = "../../modules/azurerm_NIC"
   nic_config = var.nic_config
   depends_on = [module.subnet, module.pip]
 }
 
 module "nsg" {
-  source = "../../modules/azurerm_network_security_group"
+  source = "../../modules/azurerm_NSG"
   nsg_config = var.nsg_config
   depends_on = [module.rg]
 }
 
 module "nsg_association" {
-  source = "../../modules/azurerm_network_security_group_association"
+  source = "../../modules/azurerm_network_sequirty group _Association"
   nsg_nic_config = var.nsg_nic_config
   depends_on = [module.nic, module.nsg]
 }

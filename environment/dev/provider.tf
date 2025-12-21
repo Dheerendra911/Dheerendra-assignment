@@ -6,10 +6,15 @@ terraform {
     }
   }
 
+  # backend "azurerm" {
+  #   resource_group_name  = "dk_rg"
+  #   storage_account_name = "patelstorage"
+  #   container_name       = "dkcont"
+  #   key                  = "terraform.tfstate"
+  # }
 }
 
 provider "azurerm" {
   features {}
-  subscription_id = "b4461466-1e6b-4be2-bb70-1e96a72a41c8"
-
+  subscription_id = "872d3065-2e7c-4fb2-a8a9-900bd99bf26b"
 }
