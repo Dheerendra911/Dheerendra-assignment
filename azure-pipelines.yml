@@ -1,0 +1,34 @@
+
+trigger: none
+
+pool:
+  name: Machines
+
+stages:
+- stage: precommit
+  displayName: Pre-commit
+  jobs:
+  - job: TerraformValidate
+    displayName: Terraform Validate
+    steps:
+    - task: TerraformInstaller@1
+      displayName: Install Terraform
+      inputs:
+        terraformVersion: 'latest'
+
+    - task: TerraformTaskV4@4
+      displayName: Terraform Init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+    - task: TerraformTaskV4@4
+      displayName: Terraform Validate
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+      
+                
